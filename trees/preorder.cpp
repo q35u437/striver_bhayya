@@ -1,6 +1,6 @@
     void preorder(TreeNode *root, vector<int> &answer){
         if(root){
-            array.push_back(root->val);
+            answer.push_back(root->val);
             if(root->left){
                 preorder(root->left, answer);
             }

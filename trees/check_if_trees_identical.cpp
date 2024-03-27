@@ -1,3 +1,5 @@
+//we can also do any of the traversal and check if both traversals are same then we can return true representing that they are identical
+
 bool checkBoth(TreeNode *node1, TreeNode *node2){
     if(!node1 and node2){
         return false;

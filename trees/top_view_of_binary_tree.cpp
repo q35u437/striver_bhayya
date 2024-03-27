@@ -1,5 +1,5 @@
 //somehow GFG has the best binary trees questions than leetcode
-
+//this can be also solved using recursion but it's a bit complex. so better off with level order
 vector<int> topView(Node *root)
 {
     if(!root){

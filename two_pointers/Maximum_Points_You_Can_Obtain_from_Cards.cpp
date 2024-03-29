@@ -5,10 +5,8 @@ int maxScore(vector<int>& nums, int k) {
         sum+=nums[i];
     int answer = sum;
     while(left >= 0){
-        sum -= nums[left];
-        left-=1;
-        right-=1;
-        sum += nums[right];
+        sum -= nums[left--];
+        sum += nums[--right];
         answer = max(answer, sum);
     }
     return answer;

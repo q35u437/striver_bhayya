@@ -1,3 +1,5 @@
+//leetcode id is : 2385
+// in gfg it can be directly found
 TreeNode* getAllParents(TreeNode *root, map<TreeNode*,TreeNode*> &parents, int start){
     queue<TreeNode*> q;
     q.push(root);

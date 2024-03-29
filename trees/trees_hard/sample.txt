@@ -1,4 +1,4 @@
 created to contain the folder
 
 
-if  you find a tree question to be bit tough than better turn that tree into a graph and apply graph algorithms
+if you find a tree question to be bit tough than better turn that tree into a graph and apply graph algorithms

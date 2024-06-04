@@ -1,14 +1,12 @@
 class Solution {
 public:
     int appendCharacters(string s, string t) {
-        int tindex = 0, sindex = 0;
-        for(;tindex < t.size(); tindex++){
-            while(s[sindex] != t[tindex] and sindex < s.size())
-                sindex++;
-            if(sindex == s.size()){
-                return t.size() - tindex;
+        int sindex = 0, tindex = 0;
+        while(sindex < s.size() and tindex < t.size()){
+            if(s[sindex] == t[tindex]){
+                tindex+=1;
             }
-            sindex++;
+            sindex+=1;
         }
         return t.size() - tindex;
     }

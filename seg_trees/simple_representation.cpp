@@ -47,6 +47,7 @@ class SegTree{
 				update(2*index+1,low,middle,ind,value);
 			else 
 				update(2*index+2,middle+1,high,ind,value);
+			seg[index] = seg[2*index+1] + seg[2*index+2];
 		}
 };
 

@@ -2,7 +2,6 @@ class Solution {
 public:
     int minSwaps(vector<int>& nums) {
         int occurences = count(nums.begin(), nums.end(), 1);
-        if(not occurences) return 0;
         int left = 0, right = occurences-1;
         int length = nums.size();
         for(int index = 0; index < length; index++){

@@ -5,7 +5,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class disJointUnion {
+class disJointSetUnion {
     vector<int> rank;
     vector<int> parent;
 public:
@@ -38,7 +38,7 @@ public:
 };
 
 int main() {
-    disJointUnion object = disJointUnion(7);
+    disJointSetUnion object = disJointSetUnion(7);
 
     object.Union(1, 2);
     object.Union(2, 3);

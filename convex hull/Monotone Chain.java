@@ -14,15 +14,22 @@ class Solution {
         Stack<int[]> upper = new Stack<>();
 
         for(int i = 0; i < trees.length; i++){
+
+            //while building the lower hull remove the points in stack if it forms a clock wise turn because it lies with in the bounds and we found another point for our boundary
             while(lower.size() >= 2 && this.getOrientation(lower.get(lower.size()-2), lower.get(lower.size()-1),trees[i]) > 0){
                 lower.pop();
             }
+            //while building the upper hull remove the points in stack if it forms a anti-clock wise turn because it lies with in the bounds and we found another point for our boundary
             while(upper.size() >= 2 && this.getOrientation(upper.get(upper.size()-2), upper.get(upper.size()-1), trees[i]) < 0){
                 upper.pop();
             }
+
+            //add the point to consider it for checking if it forms a convex hull
             lower.add(trees[i]);
             upper.add(trees[i]);
         }
+
+        //remove duplicate points
         Set<int[]> answer = new HashSet<>(lower);
         answer.addAll(upper);
         return answer.toArray(new int[answer.size()][]);

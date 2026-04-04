@@ -19,7 +19,6 @@ class LRUCache:
             # if self.headNode.right is self.dictionary[key]:
             #     return self.dictionary[key].value
             rightNode, leftNode = self.dictionary[key].right, self.dictionary[key].left
-            print(rightNode.key, leftNode.key)
             leftNode.right, rightNode.left = rightNode, leftNode
             head = self.headNode.right
             self.dictionary[key].right = head

@@ -1,0 +1,28 @@
+class Solution:
+    def getAnswer(self, start, end, dp, prefix_sums):
+        if start == end:
+            return 0
+        if dp[start][end] != -1:
+            return dp[start][end]
+        answer = -float("inf")
+        for i in range(start, end):
+            left_array_sum = prefix_sums[i + 1] - prefix_sums[start]
+            right_array_sum = prefix_sums[end + 1] - prefix_sums[i + 1]
+            if left_array_sum < right_array_sum:
+                a1 = left_array_sum + self.getAnswer(start, i, dp, prefix_sums)
+                answer = max(answer, a1)
+            elif left_array_sum > right_array_sum:
+                a1 = right_array_sum + self.getAnswer(i+1, end, dp, prefix_sums)
+                answer = max(answer, a1 )
+            else:
+                a1 = left_array_sum +  max(self.getAnswer(start, i, dp, prefix_sums), self.getAnswer(i+1, end, dp, prefix_sums))
+                answer = max(answer, a1)
+        dp[start][end] = answer
+        return dp[start][end]
+
+    def stoneGameV(self, stoneValue: List[int]) -> int:
+        prefix_sums = [0]
+        for stone in stoneValue:
+            prefix_sums.append(prefix_sums[-1] + stone)
+        dp = [[-1 for j in range(len(stoneValue))] for i in range(len(stoneValue))]
+        return self.getAnswer(0, len(stoneValue) - 1, dp, prefix_sums)
